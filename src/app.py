@@ -24,8 +24,10 @@ def add_new_todo():
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
-    new_todos = list(filter(lambda item: item.get('position') == position, todos))
-    return jsonify(new_todos)
+    #new_todos = list(filter(lambda item: item.get('position') == position, todos))
+    todos.pop((position-1))
+    
+    return jsonify(todos)
     
 
 
